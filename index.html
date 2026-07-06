@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyler Jeong // Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Kyler Jeong — Mechanical Engineer. CAD design, prototyping, analysis, and fabrication projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="blueprint-grid" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <a href="#top" class="nav__logo">
+      <span class="nav__logo-bracket">⌀</span>KJ<span class="nav__logo-bracket">±</span>
+    </a>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#about"><span class="nav__index">01.</span>About</a></li>
+      <li><a href="#skills"><span class="nav__index">02.</span>Skills</a></li>
+      <li><a href="#projects"><span class="nav__index">03.</span>Projects</a></li>
+      <li><a href="#experience"><span class="nav__index">04.</span>Experience</a></li>
+      <li><a href="#contact"><span class="nav__index">05.</span>Contact</a></li>
+      <li><a href="resume.pdf" class="nav__resume" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Mechanical Engineering Portfolio</p>
+          <h1 class="hero__name">Kyler Jeong</h1>
+          <p class="hero__role"><span id="typed-role"></span><span class="cursor">▊</span></p>
+          <p class="hero__tagline">
+            I design, prototype, and build mechanical systems — from the first CAD
+            model to the finished part.
+          </p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <svg viewBox="-220 -220 440 440" xmlns="http://www.w3.org/2000/svg">
+            <!-- centerlines -->
+            <line class="fl-center" x1="-218" y1="0" x2="218" y2="0" />
+            <line class="fl-center" x1="0" y1="-218" x2="0" y2="218" />
+            <!-- outer rim -->
+            <circle class="fl-outer" r="200" />
+            <!-- rotating tick ring (graduations) -->
+            <g class="fl-rotor">
+              <circle class="fl-ticks" r="193" />
+            </g>
+            <!-- mid face -->
+            <circle class="fl-mid" r="150" />
+            <!-- counter-rotating dashed circle -->
+            <g class="fl-rotor fl-rotor--reverse">
+              <circle class="fl-dash" r="118" />
+            </g>
+            <!-- bolt circle: 6 holes on Ø250 -->
+            <g class="fl-bolts">
+              <circle cx="108.3" cy="62.5" r="11" />
+              <circle cx="0" cy="125" r="11" />
+              <circle cx="-108.3" cy="62.5" r="11" />
+              <circle cx="-108.3" cy="-62.5" r="11" />
+              <circle cx="0" cy="-125" r="11" />
+              <circle cx="108.3" cy="-62.5" r="11" />
+            </g>
+            <!-- hub and bore -->
+            <circle class="fl-hub" r="52" />
+            <circle class="fl-bore" r="26" />
+            <!-- accent arc -->
+            <path class="fl-arc" d="M 150 0 A 150 150 0 0 1 0 150" />
+            <circle class="fl-node" cx="150" cy="0" r="4" />
+            <circle class="fl-node" cx="0" cy="150" r="4" />
+          </svg>
+        </div>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll down">
+        <span class="hero__scroll-chevron">⌄</span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <h2 class="section__title"><span class="section__index">01.</span> About<span class="section__slash">_</span></h2>
+      <div class="about__grid">
+        <div class="about__text card">
+          <p>
+            Hi, I'm <strong>Kyler</strong> — a mechanical engineer who loves taking ideas from
+            napkin sketch to CAD to a physical part you can hold. I care about designs that are
+            manufacturable, tolerant of the real world, and a little bit beautiful.
+          </p>
+          <p>
+            My happy place is the loop between the workshop and the screen: model it, print or
+            machine it, break it, measure why, and revise. When I'm not iterating on a prototype,
+            I'm running simulations, tuning a mechanism, or learning a new fabrication process.
+          </p>
+          <p class="about__tagline">
+            <span class="accent">▸</span> Currently open to internships &amp; design collaborations.
+          </p>
+        </div>
+        <div class="about__stats">
+          <div class="stat card">
+            <span class="stat__value" data-count="10">0</span><span class="stat__plus">+</span>
+            <span class="stat__label">Prototypes Built</span>
+          </div>
+          <div class="stat card">
+            <span class="stat__value" data-count="100">0</span><span class="stat__plus">+</span>
+            <span class="stat__label">Parts Modeled in CAD</span>
+          </div>
+          <div class="stat card">
+            <span class="stat__value" data-count="3">0</span><span class="stat__plus">+</span>
+            <span class="stat__label">Years Designing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <h2 class="section__title"><span class="section__index">02.</span> Skills<span class="section__slash">_</span></h2>
+      <div class="skills__grid">
+        <div class="skill-group card">
+          <h3 class="skill-group__title">▸ Design &amp; CAD</h3>
+          <ul class="chips">
+            <li class="chip">SolidWorks</li>
+            <li class="chip">Fusion 360</li>
+            <li class="chip">Onshape</li>
+            <li class="chip">AutoCAD</li>
+            <li class="chip">GD&amp;T</li>
+            <li class="chip">DFM / DFA</li>
+          </ul>
+        </div>
+        <div class="skill-group card">
+          <h3 class="skill-group__title">▸ Analysis &amp; Simulation</h3>
+          <ul class="chips">
+            <li class="chip">FEA (SolidWorks Sim)</li>
+            <li class="chip">ANSYS</li>
+            <li class="chip">MATLAB</li>
+            <li class="chip">Simulink</li>
+            <li class="chip">Thermodynamics</li>
+            <li class="chip">Statics &amp; Dynamics</li>
+          </ul>
+        </div>
+        <div class="skill-group card">
+          <h3 class="skill-group__title">▸ Fabrication</h3>
+          <ul class="chips">
+            <li class="chip">3D Printing (FDM/SLA)</li>
+            <li class="chip">CNC Machining</li>
+            <li class="chip">Laser Cutting</li>
+            <li class="chip">Sheet Metal</li>
+            <li class="chip">Mill &amp; Lathe</li>
+            <li class="chip">Soldering</li>
+          </ul>
+        </div>
+        <div class="skill-group card">
+          <h3 class="skill-group__title">▸ Mechatronics &amp; Tools</h3>
+          <ul class="chips">
+            <li class="chip">Arduino</li>
+            <li class="chip">Raspberry Pi</li>
+            <li class="chip">Python</li>
+            <li class="chip">Motor Control</li>
+            <li class="chip">Sensors &amp; DAQ</li>
+            <li class="chip">Excel / VBA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <h2 class="section__title"><span class="section__index">03.</span> Projects<span class="section__slash">_</span></h2>
+      <div class="projects__grid">
+
+        <article class="project card">
+          <div class="project__header">
+            <span class="project__icon">⚙</span>
+            <div class="project__links">
+              <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub repo">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener" aria-label="CAD files / demo">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project__title">4-DOF Robotic Arm</h3>
+          <p class="project__desc">
+            Servo-driven robotic arm designed in SolidWorks and 3D printed. Ran FEA on the
+            load-bearing joints to cut weight 30% while keeping deflection under spec at full reach.
+          </p>
+          <ul class="project__tags">
+            <li>SolidWorks</li><li>FEA</li><li>3D Printing</li><li>Arduino</li>
+          </ul>
+        </article>
+
+        <article class="project card">
+          <div class="project__header">
+            <span class="project__icon">✈</span>
+            <div class="project__links">
+              <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub repo">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project__title">Lightweight Drone Frame</h3>
+          <p class="project__desc">
+            Custom quadcopter frame optimized for stiffness-to-weight. Iterated through topology
+            studies, vibration-damped motor mounts, and crash-tested three revisions to a flyable build.
+          </p>
+          <ul class="project__tags">
+            <li>Fusion 360</li><li>Topology Opt.</li><li>Carbon Fiber</li>
+          </ul>
+        </article>
+
+        <article class="project card">
+          <div class="project__header">
+            <span class="project__icon">♨</span>
+            <div class="project__links">
+              <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub repo">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project__title">Desktop Stirling Engine</h3>
+          <p class="project__desc">
+            Machined and assembled a working gamma-type Stirling engine. Modeled the thermodynamic
+            cycle in MATLAB to size the displacer, then turned the flywheel and cylinders on a lathe.
+          </p>
+          <ul class="project__tags">
+            <li>Machining</li><li>Thermo</li><li>MATLAB</li>
+          </ul>
+        </article>
+
+        <article class="project card">
+          <div class="project__header">
+            <span class="project__icon">⌖</span>
+            <div class="project__links">
+              <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub repo">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project__title">Tendon-Driven Prosthetic Hand</h3>
+          <p class="project__desc">
+            3D-printed prosthetic hand using compliant flexure joints and tendon routing — a
+            single-actuator design that achieves an adaptive grip across object shapes.
+          </p>
+          <ul class="project__tags">
+            <li>Compliant Mechanisms</li><li>SLA Printing</li><li>Onshape</li>
+          </ul>
+        </article>
+
+      </div>
+      <p class="projects__more">
+        <a href="https://github.com/" target="_blank" rel="noopener" class="btn btn--ghost">More builds on GitHub →</a>
+      </p>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <h2 class="section__title"><span class="section__index">04.</span> Experience<span class="section__slash">_</span></h2>
+      <div class="timeline">
+        <div class="timeline__item card">
+          <span class="timeline__date">2025 — Present</span>
+          <h3 class="timeline__role">Mechanical Design — Independent Projects</h3>
+          <p class="timeline__org">Home Workshop</p>
+          <p class="timeline__desc">
+            Designing, printing, and machining personal engineering projects end-to-end: CAD,
+            simulation, fabrication, and testing. Documenting builds, drawings, and CAD files publicly.
+          </p>
+        </div>
+        <div class="timeline__item card">
+          <span class="timeline__date">2024 — 2025</span>
+          <h3 class="timeline__role">Mechanical Subteam Member</h3>
+          <p class="timeline__org">School Robotics Team</p>
+          <p class="timeline__desc">
+            Owned drivetrain and intake mechanism CAD. Machined and assembled competition parts,
+            ran clearance and load checks, and iterated designs between matches under time pressure.
+          </p>
+        </div>
+        <div class="timeline__item card">
+          <span class="timeline__date">2023 — 2024</span>
+          <h3 class="timeline__role">First Parts &amp; First Prints</h3>
+          <p class="timeline__org">Self-Taught</p>
+          <p class="timeline__desc">
+            Learned SolidWorks and Fusion 360 through tutorials and teardown-and-remodel practice.
+            Built a 3D printer from a kit — then used it to print upgrades for itself.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--contact" id="contact">
+      <h2 class="section__title"><span class="section__index">05.</span> Contact<span class="section__slash">_</span></h2>
+      <div class="contact card">
+        <p class="contact__line">RFQ — REQUEST FOR COLLABORATION : OPEN</p>
+        <a href="mailto:rexhouyang@gmail.com" class="contact__email">rexhouyang@gmail.com</a>
+        <p class="contact__blurb">
+          Whether it's a design challenge, an opportunity, or a question about something
+          I built — my inbox is open. Response time: <span class="accent">&lt; 24h</span>.
+        </p>
+        <div class="contact__socials">
+          <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="https://grabcad.com/" target="_blank" rel="noopener" aria-label="GrabCAD" class="contact__grabcad">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8.5 5v10L12 22l-8.5-5V7L12 2z"/><path d="M12 22V12M12 12L3.5 7M12 12l8.5-5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Designed &amp; built by <span class="accent">Kyler Jeong</span></p>
+    <p class="footer__meta">© <span id="year"></span> · Built by hand · Deployed on GitHub Pages</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
