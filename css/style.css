@@ -457,9 +457,12 @@ body {
   font-size: 1.8rem;
   color: var(--accent);
 }
-.project__links { display: flex; gap: 0.8rem; }
-.project__links a { color: var(--text-dim); transition: color 0.2s; }
-.project__links a:hover { color: var(--accent); }
+.project__date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+}
 
 .project__title {
   font-family: var(--font-display);

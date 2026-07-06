@@ -10,10 +10,10 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
   const el = document.getElementById("typed-role");
   const roles = [
     "Mechanical Engineer.",
+    "UC Berkeley ME '28.",
+    "Combat robot builder.",
     "CAD designer.",
     "Prototype builder.",
-    "Machinist in training.",
-    "Problem solver.",
   ];
 
   if (prefersReducedMotion) {
