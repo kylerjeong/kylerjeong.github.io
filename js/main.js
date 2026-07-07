@@ -112,5 +112,111 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
   );
 })();
 
+/* ---------- Project photo galleries ----------
+   To add photos: drop image files into the images/ folder, then list
+   them here. Example:
+     "beetleweight": [
+       { src: "images/beetleweight-cad.jpg", caption: "Weapon assembly CAD" },
+       { src: "images/beetleweight-v1.jpg", caption: "First prototype" },
+     ],
+*/
+const galleries = {
+  "robotic-foot": [],
+  "beetleweight": [],
+  "sunglow": [],
+  "lockbox": [],
+  "wind-turbine": [],
+  "parcel": [],
+};
+
+/* ---------- Lightbox ---------- */
+(() => {
+  const lightbox = document.getElementById("lightbox");
+  const titleEl = document.getElementById("lightbox-title");
+  const imgEl = document.getElementById("lightbox-img");
+  const emptyEl = document.getElementById("lightbox-empty");
+  const captionEl = document.getElementById("lightbox-caption");
+  const counterEl = document.getElementById("lightbox-counter");
+  const prevBtn = document.getElementById("lightbox-prev");
+  const nextBtn = document.getElementById("lightbox-next");
+
+  let images = [];
+  let index = 0;
+  let lastFocused = null;
+
+  function render() {
+    const hasImages = images.length > 0;
+    imgEl.hidden = !hasImages;
+    emptyEl.hidden = hasImages;
+    prevBtn.disabled = !hasImages || images.length < 2;
+    nextBtn.disabled = !hasImages || images.length < 2;
+
+    if (hasImages) {
+      const { src, caption } = images[index];
+      imgEl.src = src;
+      imgEl.alt = caption || "";
+      captionEl.textContent = caption || "";
+      counterEl.textContent = `${index + 1} / ${images.length}`;
+    } else {
+      imgEl.removeAttribute("src");
+      captionEl.textContent = "";
+      counterEl.textContent = "";
+    }
+  }
+
+  function open(card) {
+    const key = card.dataset.project;
+    images = galleries[key] || [];
+    index = 0;
+    titleEl.textContent = card.querySelector(".project__title").textContent;
+    lastFocused = card;
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    render();
+    lightbox.querySelector(".lightbox__close").focus();
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocused) lastFocused.focus();
+  }
+
+  function step(dir) {
+    if (images.length < 2) return;
+    index = (index + dir + images.length) % images.length;
+    render();
+  }
+
+  document.querySelectorAll(".project[data-project]").forEach((card) => {
+    card.addEventListener("click", () => open(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open(card);
+      }
+    });
+
+    // hover hint
+    const hint = document.createElement("p");
+    hint.className = "project__view";
+    hint.textContent = "▸ View Photos";
+    card.appendChild(hint);
+  });
+
+  lightbox.querySelectorAll("[data-close]").forEach((el) =>
+    el.addEventListener("click", close)
+  );
+  prevBtn.addEventListener("click", () => step(-1));
+  nextBtn.addEventListener("click", () => step(1));
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+})();
+
 /* ---------- Footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();

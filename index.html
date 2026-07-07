@@ -185,7 +185,7 @@
       <h2 class="section__title"><span class="section__index">03.</span> Projects<span class="section__slash">_</span></h2>
       <div class="projects__grid">
 
-        <article class="project card">
+        <article class="project card" data-project="robotic-foot" tabindex="0">
           <div class="project__header">
             <span class="project__icon">⌖</span>
             <span class="project__date">Jun 2026 – Present</span>
@@ -201,7 +201,7 @@
           </ul>
         </article>
 
-        <article class="project card">
+        <article class="project card" data-project="beetleweight" tabindex="0">
           <div class="project__header">
             <span class="project__icon">⚙</span>
             <span class="project__date">Dec 2025 – Present</span>
@@ -217,7 +217,7 @@
           </ul>
         </article>
 
-        <article class="project card">
+        <article class="project card" data-project="sunglow" tabindex="0">
           <div class="project__header">
             <span class="project__icon">☀</span>
             <span class="project__date">Jan 2026 – May 2026</span>
@@ -233,7 +233,7 @@
           </ul>
         </article>
 
-        <article class="project card">
+        <article class="project card" data-project="lockbox" tabindex="0">
           <div class="project__header">
             <span class="project__icon">▣</span>
             <span class="project__date">Jan 2026 – May 2026</span>
@@ -250,7 +250,7 @@
           </ul>
         </article>
 
-        <article class="project card">
+        <article class="project card" data-project="wind-turbine" tabindex="0">
           <div class="project__header">
             <span class="project__icon">✳</span>
             <span class="project__date">Mar 2025 – May 2025</span>
@@ -267,7 +267,7 @@
           </ul>
         </article>
 
-        <article class="project card">
+        <article class="project card" data-project="parcel" tabindex="0">
           <div class="project__header">
             <span class="project__icon">◉</span>
             <span class="project__date">Feb 2025 – May 2025</span>
@@ -357,6 +357,27 @@
     <p>Designed &amp; built by <span class="accent">Kyler Jeong</span></p>
     <p class="footer__meta">© <span id="year"></span> · Built by hand · Deployed on GitHub Pages</p>
   </footer>
+
+  <!-- ============ PROJECT PHOTO LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <div class="lightbox__bar">
+        <h3 class="lightbox__title" id="lightbox-title"></h3>
+        <button class="lightbox__close" data-close aria-label="Close">✕</button>
+      </div>
+      <div class="lightbox__stage">
+        <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+        <figure class="lightbox__figure">
+          <img class="lightbox__img" id="lightbox-img" alt="" hidden />
+          <p class="lightbox__empty" id="lightbox-empty" hidden>Photos coming soon</p>
+          <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next photo">›</button>
+      </div>
+      <p class="lightbox__counter" id="lightbox-counter"></p>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

@@ -18,6 +18,10 @@ An industrial-themed mechanical engineering portfolio — gunmetal and safety or
 └── js/main.js      # Typing effect, scroll reveals, counters, mobile nav
 ```
 
+## Add project photos
+
+Each project card opens a photo lightbox when clicked. Drop images into `images/` and list them in the `galleries` object at the bottom of `js/main.js` — see [images/README.md](images/README.md) for the format.
+
 ## Personalize
 
 1. **Projects** — edit the `<article class="project">` blocks in `index.html` and point the GitHub/demo links at your real repos.
