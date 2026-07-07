@@ -112,12 +112,14 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
   );
 })();
 
-/* ---------- Project photo galleries ----------
-   To add photos: drop image files into the images/ folder, then list
-   them here. Example:
+/* ---------- Project photo & video galleries ----------
+   To add media: drop files into the images/ folder, then list them
+   here. Images (.jpg/.png), video files (.mp4/.webm), and YouTube
+   links all work. Example:
      "beetleweight": [
        { src: "images/beetleweight-cad.jpg", caption: "Weapon assembly CAD" },
-       { src: "images/beetleweight-v1.jpg", caption: "First prototype" },
+       { src: "images/beetleweight-spinup.mp4", caption: "Weapon spin-up test" },
+       { src: "https://youtu.be/VIDEO_ID", caption: "First match" },
      ],
 */
 const galleries = {
@@ -134,29 +136,62 @@ const galleries = {
   const lightbox = document.getElementById("lightbox");
   const titleEl = document.getElementById("lightbox-title");
   const imgEl = document.getElementById("lightbox-img");
+  const videoEl = document.getElementById("lightbox-video");
+  const frameEl = document.getElementById("lightbox-frame");
   const emptyEl = document.getElementById("lightbox-empty");
   const captionEl = document.getElementById("lightbox-caption");
   const counterEl = document.getElementById("lightbox-counter");
   const prevBtn = document.getElementById("lightbox-prev");
   const nextBtn = document.getElementById("lightbox-next");
 
-  let images = [];
+  let items = [];
   let index = 0;
   let lastFocused = null;
 
-  function render() {
-    const hasImages = images.length > 0;
-    imgEl.hidden = !hasImages;
-    emptyEl.hidden = hasImages;
-    prevBtn.disabled = !hasImages || images.length < 2;
-    nextBtn.disabled = !hasImages || images.length < 2;
+  function kindOf(item) {
+    if (/youtube\.com|youtu\.be/.test(item.src)) return "youtube";
+    if (/\.(mp4|webm|ogg|mov)(\?|$)/i.test(item.src)) return "video";
+    return "image";
+  }
 
-    if (hasImages) {
-      const { src, caption } = images[index];
-      imgEl.src = src;
-      imgEl.alt = caption || "";
-      captionEl.textContent = caption || "";
-      counterEl.textContent = `${index + 1} / ${images.length}`;
+  function youtubeEmbedUrl(src) {
+    const match = src.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([\w-]{11})/);
+    return match ? `https://www.youtube-nocookie.com/embed/${match[1]}` : src;
+  }
+
+  function stopMedia() {
+    videoEl.pause();
+    videoEl.removeAttribute("src");
+    videoEl.load();
+    frameEl.removeAttribute("src");
+  }
+
+  function render() {
+    const hasItems = items.length > 0;
+    stopMedia();
+    imgEl.hidden = true;
+    videoEl.hidden = true;
+    frameEl.hidden = true;
+    emptyEl.hidden = hasItems;
+    prevBtn.disabled = !hasItems || items.length < 2;
+    nextBtn.disabled = !hasItems || items.length < 2;
+
+    if (hasItems) {
+      const item = items[index];
+      const kind = kindOf(item);
+      if (kind === "youtube") {
+        frameEl.src = youtubeEmbedUrl(item.src);
+        frameEl.hidden = false;
+      } else if (kind === "video") {
+        videoEl.src = item.src;
+        videoEl.hidden = false;
+      } else {
+        imgEl.src = item.src;
+        imgEl.alt = item.caption || "";
+        imgEl.hidden = false;
+      }
+      captionEl.textContent = item.caption || "";
+      counterEl.textContent = `${index + 1} / ${items.length}`;
     } else {
       imgEl.removeAttribute("src");
       captionEl.textContent = "";
@@ -166,7 +201,7 @@ const galleries = {
 
   function open(card) {
     const key = card.dataset.project;
-    images = galleries[key] || [];
+    items = galleries[key] || [];
     index = 0;
     titleEl.textContent = card.querySelector(".project__title").textContent;
     lastFocused = card;
@@ -177,14 +212,15 @@ const galleries = {
   }
 
   function close() {
+    stopMedia();
     lightbox.hidden = true;
     document.body.style.overflow = "";
     if (lastFocused) lastFocused.focus();
   }
 
   function step(dir) {
-    if (images.length < 2) return;
-    index = (index + dir + images.length) % images.length;
+    if (items.length < 2) return;
+    index = (index + dir + items.length) % items.length;
     render();
   }
 
@@ -200,7 +236,7 @@ const galleries = {
     // hover hint
     const hint = document.createElement("p");
     hint.className = "project__view";
-    hint.textContent = "▸ View Photos";
+    hint.textContent = "▸ View Gallery";
     card.appendChild(hint);
   });
 
