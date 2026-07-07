@@ -124,11 +124,25 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 */
 const galleries = {
   "robotic-foot": [],
-  "beetleweight": [],
-  "sunglow": [],
-  "lockbox": [],
-  "wind-turbine": [],
-  "parcel": [],
+  "beetleweight": [
+    { src: "images/gemini-actual.jpg", caption: "Gemini assembled: carbon fiber top plate, machined beater bar, and printed forks" },
+    { src: "images/gemini-cad.jpg", caption: "Full assembly CAD of Gemini" },
+  ],
+  "sunglow": [
+    { src: "images/sunglow-actual.jpg", caption: "The working prototype, glowing through its printed lattice shell" },
+    { src: "images/sunglow-cad.jpg", caption: "Section view CAD showing the self-watering reservoir inside the base" },
+  ],
+  "lockbox": [
+    { src: "images/phonebox-cad.jpg", caption: "Enclosure CAD with the phone tray, OLED cutout, and stacked drawers" },
+    { src: "images/phonebox-video.mp4", caption: "Locking mechanism demo" },
+  ],
+  "wind-turbine": [
+    { src: "images/windturbine-actual.jpg", caption: "The printed turbine tower on the competition test rig" },
+  ],
+  "parcel": [
+    { src: "images/parcel-actual.jpg", caption: "The laser-cut delivery box prototype" },
+    { src: "https://www.youtube.com/shorts/C_6m3SNmg24", caption: "PARCEL in action" },
+  ],
 };
 
 /* ---------- Lightbox ---------- */

@@ -1,2 +1,5 @@
 # Local dev tooling (preview server config)
 .claude/
+
+# Full-size source photos/videos (web-optimized copies live in images/)
+originals/
